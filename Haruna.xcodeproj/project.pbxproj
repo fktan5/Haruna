@@ -10,6 +10,8 @@
 		1D211C1368F283750075630E /* Pods_HarunaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C604DDD1E3FCC8DD2F83209A /* Pods_HarunaUITests.framework */; };
 		2D7870221B676A017CCE7228 /* Pods_Haruna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7704FE944583055F1BFF0571 /* Pods_Haruna.framework */; };
 		49170D661EB9B48A004C6081 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49170D651EB9B48A004C6081 /* Event.swift */; };
+		4958D73F1EBAF6E50003D31E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4958D73E1EBAF6E50003D31E /* CoreLocation.framework */; };
+		49D050611EC5EEA4008227B8 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D050601EC5EEA4008227B8 /* NewEventViewController.swift */; };
 		49E664AA1EB96BDC00CE0A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E664A91EB96BDC00CE0A64 /* AppDelegate.swift */; };
 		49E664AC1EB96BDC00CE0A64 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E664AB1EB96BDC00CE0A64 /* FirstViewController.swift */; };
 		49E664AE1EB96BDC00CE0A64 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E664AD1EB96BDC00CE0A64 /* SecondViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		49170D651EB9B48A004C6081 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4958D73E1EBAF6E50003D31E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		49D050601EC5EEA4008227B8 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		49E664A61EB96BDC00CE0A64 /* Haruna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haruna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E664A91EB96BDC00CE0A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E664AB1EB96BDC00CE0A64 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4958D73F1EBAF6E50003D31E /* CoreLocation.framework in Frameworks */,
 				2D7870221B676A017CCE7228 /* Pods_Haruna.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,14 +123,15 @@
 		49E664A81EB96BDC00CE0A64 /* Haruna */ = {
 			isa = PBXGroup;
 			children = (
+				49E664B71EB96BDC00CE0A64 /* Info.plist */,
 				49E664A91EB96BDC00CE0A64 /* AppDelegate.swift */,
+				49170D651EB9B48A004C6081 /* Event.swift */,
 				49E664AB1EB96BDC00CE0A64 /* FirstViewController.swift */,
+				49D050601EC5EEA4008227B8 /* NewEventViewController.swift */,
 				49E664AD1EB96BDC00CE0A64 /* SecondViewController.swift */,
-				49E664AF1EB96BDC00CE0A64 /* Main.storyboard */,
 				49E664B21EB96BDC00CE0A64 /* Assets.xcassets */,
 				49E664B41EB96BDC00CE0A64 /* LaunchScreen.storyboard */,
-				49E664B71EB96BDC00CE0A64 /* Info.plist */,
-				49170D651EB9B48A004C6081 /* Event.swift */,
+				49E664AF1EB96BDC00CE0A64 /* Main.storyboard */,
 			);
 			path = Haruna;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 		89213E56379B1A9063EEBFFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4958D73E1EBAF6E50003D31E /* CoreLocation.framework */,
 				7704FE944583055F1BFF0571 /* Pods_Haruna.framework */,
 				90152E76D6F9C74A15CA5666 /* Pods_HarunaTests.framework */,
 				C604DDD1E3FCC8DD2F83209A /* Pods_HarunaUITests.framework */,
@@ -248,6 +255,7 @@
 				TargetAttributes = {
 					49E664A51EB96BDC00CE0A64 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5XGFKK5JSH;
 						ProvisioningStyle = Automatic;
 					};
 					49E664BB1EB96BDD00CE0A64 = {
@@ -454,6 +462,7 @@
 			files = (
 				49170D661EB9B48A004C6081 /* Event.swift in Sources */,
 				49E664AE1EB96BDC00CE0A64 /* SecondViewController.swift in Sources */,
+				49D050611EC5EEA4008227B8 /* NewEventViewController.swift in Sources */,
 				49E664AA1EB96BDC00CE0A64 /* AppDelegate.swift in Sources */,
 				49E664AC1EB96BDC00CE0A64 /* FirstViewController.swift in Sources */,
 			);
@@ -610,8 +619,9 @@
 			baseConfigurationReference = BD0FF8C9AA6066A312A57BFE /* Pods-Haruna.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5XGFKK5JSH;
 				INFOPLIST_FILE = Haruna/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.fktan5.Haruna;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -624,8 +634,9 @@
 			baseConfigurationReference = 90B0DBCB8D9FDED3B452D358 /* Pods-Haruna.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5XGFKK5JSH;
 				INFOPLIST_FILE = Haruna/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.fktan5.Haruna;
 				PRODUCT_NAME = "$(TARGET_NAME)";
