@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Event: Object {
+    var user:String = ""
+    var type:Bool = true
+    var access:String = ""
+//    var location:
+    var datetime:NSDate = NSDate()
+    var checklist:List = List<CheckItem>()
+    var memo:String = ""
+    
+    class CheckItem:Object {
+        var name:String = ""        
+    }
+}
