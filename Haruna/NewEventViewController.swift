@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import CoreLocation
 
 class NewEventViewController : FormViewController {
 
@@ -22,8 +23,26 @@ class NewEventViewController : FormViewController {
                 $0.placeholder = "Input"
             }
 
-            <<< DateRow() { $0.value = Date(); $0.title = "Date" }
+            <<< DateRow() {
+                $0.value = Date()
+                $0.title = "Date" }
 
+            <<< ActionSheetRow<String> {
+                $0.title = "Event Style"
+                $0.selectorTitle = "Select Style"
+                $0.options = ["Reception", "After Party"]
+            }
+
+        +++ Section("Access")
+            <<< TextRow() {
+                $0.title = "Place Name"
+                $0.placeholder = "Input"
+            }
+            
+            <<< LocationRow(){
+                $0.title = "Place"
+                $0.value = CLLocation(latitude: 35.6870358, longitude: 139.7012083)
+            }
 
         +++ Section("CheckList")
 
