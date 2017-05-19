@@ -10,15 +10,17 @@ import Foundation
 import RealmSwift
 
 class Event: Object {
-    var user:String = ""
-    var type:Bool = true
-    var access:String = ""
-//    var location:
-    var datetime:NSDate = NSDate()
-    var checklist:List = List<CheckItem>()
-    var memo:String = ""
-    
-    class CheckItem:Object {
-        var name:String = ""        
-    }
+    dynamic var name:String = ""
+    dynamic var user:String = ""
+    dynamic var type:Bool = true
+    dynamic var placeName:String = ""
+    dynamic var locationLat:Float = 0.0
+    dynamic var locationLng:Float = 0.0
+    dynamic var datetime:NSDate = NSDate()
+//    dynamic var checklist:List = List<CheckItem>()
+    dynamic var memo:String = ""
+}
+
+class CheckItem:Object {
+    dynamic var name:String = ""
 }
