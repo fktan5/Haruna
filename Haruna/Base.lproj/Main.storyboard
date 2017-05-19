@@ -72,10 +72,15 @@
                                 <action selector="touchedCancelButton:" destination="g0a-0Z-FLX" id="Dar-x3-N9G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6rX-tm-3uR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6rX-tm-3uR">
+                            <connections>
+                                <action selector="touchedSaveButton:" destination="g0a-0Z-FLX" id="DG9-54-Oim"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="CancelButton" destination="BnI-Ns-Lb1" id="ejW-O3-GUM"/>
+                        <outlet property="saveButton" destination="6rX-tm-3uR" id="cJN-Mw-ogG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpK-pX-myy" userLabel="First Responder" sceneMemberID="firstResponder"/>

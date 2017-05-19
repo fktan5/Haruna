@@ -13,6 +13,7 @@ import CoreLocation
 class NewEventViewController : FormViewController {
 
     @IBOutlet weak var CancelButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,5 +60,9 @@ class NewEventViewController : FormViewController {
 
     @IBAction func touchedCancelButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
+    }
+
+    @IBAction func touchedSaveButton(_ sender : UIBarButtonItem){
+        NSLog("Save");
     }
 }
