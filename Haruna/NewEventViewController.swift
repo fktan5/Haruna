@@ -11,12 +11,18 @@ import Eureka
 import CoreLocation
 import RealmSwift
 
+protocol OnSaveEventDelegate {
+    func saved()
+}
+
 class NewEventViewController : FormViewController {
 
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
 
     var event:Event = Event()
+
+    var savedDelegate: OnSaveEventDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +99,7 @@ class NewEventViewController : FormViewController {
             realm.add(event)
         }
 
+        savedDelegate?.saved()
         self.dismiss(animated: true)
     }
 }

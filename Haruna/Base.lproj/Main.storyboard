@@ -49,6 +49,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="newButton" destination="p1v-Ce-tSJ" id="i1D-Vc-gSv"/>
                         <outlet property="tableView" destination="c0M-rl-oTD" id="ORb-zR-2ft"/>
                     </connections>
                 </viewController>
@@ -188,7 +189,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USn-ZR-LnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473.75" y="-326.40845070422534"/>
+            <point key="canvasLocation" x="1594" y="-326"/>
         </scene>
     </scenes>
     <resources>

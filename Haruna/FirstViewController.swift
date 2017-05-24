@@ -9,9 +9,11 @@
 import UIKit
 import RealmSwift
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OnSaveEventDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var newButton: UIBarButtonItem!
 
     var items:Results<Event>!
 
@@ -40,5 +42,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.textLabel?.text = items[indexPath.row].name
         return cell
     }
-}
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toNewEventViewController"){
+            print("Preparing segue (delegate reference)")
+            let navigationController : UINavigationController = segue.destination as! UINavigationController
+            let newEventView : NewEventViewController = navigationController.topViewController as! NewEventViewController
+            newEventView.savedDelegate = self
+        }
+    }
+
+    func saved() {
+        print("calling callback")
+    }
+}
