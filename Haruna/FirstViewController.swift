@@ -54,5 +54,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func saved() {
         print("calling callback")
+        tableView.reloadData()
     }
 }
