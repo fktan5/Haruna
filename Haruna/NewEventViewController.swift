@@ -32,7 +32,7 @@ class NewEventViewController : FormViewController {
                 $0.title = "Event Name"
                 $0.placeholder = "Input"
             }.onChange({ (row) in
-                self.event.name = row.value!
+                self.event.name = row.value == nil ? "" : row.value!
             })
 
             <<< DateRow() {
@@ -65,7 +65,7 @@ class NewEventViewController : FormViewController {
                 $0.title = "Place Name"
                 $0.placeholder = "Input"
             }.onChange({ (row) in
-                self.event.placeName = row.value!
+                self.event.placeName = row.value == nil ? "" : row.value!
             })
 
             <<< LocationRow(){
