@@ -43,12 +43,32 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toNewEventViewController", sender: items[indexPath.row])
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.delete){
+            do{
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.delete(items[indexPath.row])
+                    tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+                }
+            }
+            tableView.reloadData();
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toNewEventViewController"){
             print("Preparing segue (delegate reference)")
             let navigationController : UINavigationController = segue.destination as! UINavigationController
             let newEventView : NewEventViewController = navigationController.topViewController as! NewEventViewController
             newEventView.savedDelegate = self
+            if(sender is Event){
+                newEventView.event = sender as! Event
+            }
         }
     }
 
