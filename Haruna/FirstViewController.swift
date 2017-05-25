@@ -43,6 +43,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.delete){
+            do{
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.delete(items[indexPath.row])
+                    tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+                }
+            }
+            tableView.reloadData();
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toNewEventViewController"){
             print("Preparing segue (delegate reference)")
