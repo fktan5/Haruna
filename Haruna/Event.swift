@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class Event: Object {
+    dynamic var id:String = UUID().uuidString
     dynamic var name:String = ""
     dynamic var user:String = ""
     dynamic var type:String = ""
@@ -19,6 +20,10 @@ class Event: Object {
     dynamic var datetime:NSDate = NSDate()
 //    dynamic var checklist:List = List<CheckItem>()
     dynamic var memo:String = ""
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class CheckItem:Object {

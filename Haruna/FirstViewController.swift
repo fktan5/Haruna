@@ -43,8 +43,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toNewEventViewController", sender: items[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        performSegue(withIdentifier: "toNewEventViewController", sender: items[indexPath.row].id)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -66,8 +66,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let navigationController : UINavigationController = segue.destination as! UINavigationController
             let newEventView : NewEventViewController = navigationController.topViewController as! NewEventViewController
             newEventView.savedDelegate = self
-            if(sender is Event){
-                newEventView.event = sender as! Event
+            if(sender is String){
+                newEventView.id = sender as! String
             }
         }
     }
