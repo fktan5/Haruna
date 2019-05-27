@@ -9,7 +9,7 @@ target 'Haruna' do
   # Pods for Haruna
 
   pod 'RealmSwift'
-  pod 'Eureka', '~> 3.0.0'
+  pod 'Eureka', '~> 4.3.1'
   target 'HarunaTests' do
     inherit! :search_paths
     # Pods for testing
