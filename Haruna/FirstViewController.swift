@@ -37,7 +37,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
         print(items[indexPath.row].name)
         cell.textLabel?.text = items[indexPath.row].name
         return cell
@@ -48,13 +48,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if(editingStyle == UITableViewCellEditingStyle.delete){
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCell.EditingStyle.delete){
             do{
                 let realm = try! Realm()
                 try! realm.write {
                     realm.delete(items[indexPath.row])
-                    tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+                    tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.left)
                 }
             }
             tableView.reloadData();
