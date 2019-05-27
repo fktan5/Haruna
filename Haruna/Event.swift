@@ -10,15 +10,15 @@ import Foundation
 import RealmSwift
 
 class Event: Object {
-    dynamic var id:String = UUID().uuidString
-    dynamic var name:String = ""
-    dynamic var user:String = ""
-    dynamic var type:String = ""
-    dynamic var placeName:String = ""
-    dynamic var locationLat:Double = 0.0
-    dynamic var locationLng:Double = 0.0
-    dynamic var datetime:NSDate = NSDate()
-    dynamic var memo:String = ""
+    @objc dynamic var id:String = UUID().uuidString
+    @objc dynamic var name:String = ""
+    @objc dynamic var user:String = ""
+    @objc dynamic var type:String = ""
+    @objc dynamic var placeName:String = ""
+    @objc dynamic var locationLat:Double = 0.0
+    @objc dynamic var locationLng:Double = 0.0
+    @objc dynamic var datetime:NSDate = NSDate()
+    @objc dynamic var memo:String = ""
 
     let checklist = List<CheckItem>()
 
@@ -28,9 +28,9 @@ class Event: Object {
 }
 
 class CheckItem:Object {
-    dynamic var id:String = UUID().uuidString
-    dynamic var name:String = ""
-    dynamic var isGet:Bool = false
+    @objc dynamic var id:String = UUID().uuidString
+    @objc dynamic var name:String = ""
+    @objc dynamic var isGet:Bool = false
 
     let event = LinkingObjects(fromType: Event.self, property: "checklist")
 }

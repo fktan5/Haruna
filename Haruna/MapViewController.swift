@@ -34,7 +34,7 @@ public class MapViewController : UIViewController, TypedRowControllerType, MKMap
 
     lazy var mapView : MKMapView = { [unowned self] in
         let v = MKMapView(frame: self.view.bounds)
-        v.autoresizingMask = UIViewAutoresizing.flexibleWidth.union(.flexibleHeight)
+        v.autoresizingMask = UIView.AutoresizingMask.flexibleWidth.union(.flexibleHeight)
         return v
         }()
 
@@ -64,11 +64,11 @@ public class MapViewController : UIViewController, TypedRowControllerType, MKMap
         layer.bounds = CGRect(x: 0, y: 0, width: self.width, height: self.height)
         layer.path = self.ellipse.cgPath
         layer.fillColor = UIColor.gray.cgColor
-        layer.fillRule = kCAFillRuleNonZero
-        layer.lineCap = kCALineCapButt
+        layer.fillRule = CAShapeLayerFillRule.nonZero
+        layer.lineCap = CAShapeLayerLineCap.butt
         layer.lineDashPattern = nil
         layer.lineDashPhase = 0.0
-        layer.lineJoin = kCALineJoinMiter
+        layer.lineJoin = CAShapeLayerLineJoin.miter
         layer.lineWidth = 1.0
         layer.miterLimit = 10.0
         layer.strokeColor = UIColor.gray.cgColor
@@ -97,12 +97,12 @@ public class MapViewController : UIViewController, TypedRowControllerType, MKMap
         mapView.addSubview(pinView)
         mapView.layer.insertSublayer(ellipsisLayer, below: pinView.layer)
 
-        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(MapViewController.tappedDone(_:)))
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(MapViewController.tappedDone(_:)))
         button.title = "Done"
         navigationItem.rightBarButtonItem = button
 
         if let value = row.value {
-            let region = MKCoordinateRegionMakeWithDistance(value.coordinate, 400, 400)
+            let region = MKCoordinateRegion(center: value.coordinate, latitudinalMeters: 400, longitudinalMeters: 400)
             mapView.setRegion(region, animated: true)
         }
         else{
@@ -121,7 +121,7 @@ public class MapViewController : UIViewController, TypedRowControllerType, MKMap
     }
 
 
-    func tappedDone(_ sender: UIBarButtonItem){
+    @objc func tappedDone(_ sender: UIBarButtonItem){
         let target = mapView.convert(ellipsisLayer.position, toCoordinateFrom: mapView)
         row.value = CLLocation(latitude: target.latitude, longitude: target.longitude)
         onDismissCallback?(self)
